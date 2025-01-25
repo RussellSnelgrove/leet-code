@@ -4,10 +4,10 @@
  */
 // brute force 
 var containsDuplicate = function(nums) {
-    const hashMap = new Map();
+    const hashSet = new Set();
     for (let i = 0; i < nums.length; i++ ){
-        if (hashMap.has(nums[i])) return true
-        hashMap.set(nums[i], i);
+        if (hashSet.has(nums[i])) return true
+        hashSet.add(nums[i]);
     }
     return false;
 };
