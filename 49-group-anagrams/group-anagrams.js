@@ -12,9 +12,11 @@ var groupAnagrams = function(strs) {
             anagramMap[sortedWord] = [strs[i]]
         }
     }
-    const finalArray = [];
-    for(const anagram in anagramMap) {
-        finalArray.push(anagramMap[anagram]);
-    }
-    return finalArray;
+            return Object.values(anagramMap);
+
+    // const finalArray = [];
+    // for(const anagram in anagramMap) {
+    //     finalArray.push(anagramMap[anagram]);
+    // }
+    // return finalArray;
 };
