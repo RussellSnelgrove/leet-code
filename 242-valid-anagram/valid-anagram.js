@@ -3,24 +3,16 @@
  * @param {string} t
  * @return {boolean}
  */
-var isAnagram = function(s, t) {
-    if (s.length !== t.length) return false;
-    const sMap = {};
-    const tMap = {};
-
-    for (let i = 0; i < s.length; i++){
-        sMap[s[i]] = 1 + (sMap[s[i]] || 0 )
-        tMap[t[i]] = 1 + (tMap[t[i]] || 0 )
+var isAnagram = function (s1, s2) {
+    if (s1.length !== s2.length) return false;
+    const s1Map = new Map();
+    const s2Map = new Map();
+    for (let i = 0; i < s1.length; i++) {
+        s1Map.set(s1[i], (s1Map.get(s1[i]) || 0) + 1);
+        s2Map.set(s2[i], (s2Map.get(s2[i]) || 0) + 1);
     }
-
-    for (const key in sMap) {
-        if(sMap[key] !== tMap[key]) return false;
+    for (let [key, value] of s1Map) {
+        if(s2Map.get(key) !== value) return false;
     }
-    return true
-
-    // sorting uses less memory but sorts lists twice
-    // if (s.length !== t.length) return false;
-    // const stringS = s.split('').sort().join('');
-    // const stringT = t.split('').sort().join('');
-    // return stringS === stringT;
+    return true;
 };
