@@ -9,8 +9,9 @@ var MinStack = function () {
  * @return {void}
  */
 MinStack.prototype.push = function (val) {
-    if (this.minStack.length > 0) this.minStack.push(Math.min(val, (this.minStack[this.minStack.length-1])))
-    if (this.minStack.length === 0) this.minStack.push(val)
+    const length = this.minStack.length;
+    if (length > 0) this.minStack.push(Math.min(val, (this.minStack[length-1])))
+    if (length === 0) this.minStack.push(val)
     this.stack.push(val);
 };
 
