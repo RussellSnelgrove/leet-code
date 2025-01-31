@@ -3,22 +3,16 @@
  * @return {number[]}
  */
 var dailyTemperatures = function (temperatures) {
-        const n = temperatures.length;
-        const res = new Array(n).fill(0);
-
-        for (let i = n - 2; i >= 0; i--) {
-            let j = i + 1;
-            while (j < n && temperatures[j] <= temperatures[i]) {
-                if (res[j] === 0) {
-                    j = n;
-                    break;
-                }
-                j += res[j];
-            }
-
-            if (j < n) {
-                res[i] = j - i;
+    const stackOfTemps = [];
+    const result = new Array(temperatures.length).fill(0);
+    for (let i = 0; i < temperatures.length; i++) {
+        if (stackOfTemps.length > 0 && temperatures[i] > stackOfTemps?.at(-1)?.temp) {
+            while (temperatures[i] > stackOfTemps?.at(-1)?.temp) {
+                const temperature = stackOfTemps.pop();
+                result[temperature.index] = i - temperature.index;
             }
         }
-        return res;
+        stackOfTemps.push({ temp: temperatures[i], index: i });
+    }
+    return result;
 };
