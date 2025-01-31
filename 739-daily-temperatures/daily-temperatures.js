@@ -15,8 +15,7 @@ var dailyTemperatures = function (temperatures) {
         stackOfTemps.push({ temp: temperatures[i], index: i });
     }
     while (stackOfTemps.length > 0) {
-        const temperature = stackOfTemps.pop();
-        result[temperature.index] = 0;
+        result[stackOfTemps.pop().index] = 0;
     }
     return result;
 };
