@@ -2,26 +2,25 @@
  * @param {number} n
  * @return {string[]}
  */
- var backtrack = function(openN, closedN, n, res, stack) {
-    if (openN === closedN && openN === n) {
-        res.push(stack);
+var createParenthesis = function (right, left, resultArray, n, result) {
+    if (right === left && left === n) {
+        resultArray.push(result);
         return;
     }
+    if (right < n) {
+        createParenthesis(right + 1, left, resultArray, n, result + '(');
+    }
+    if (right > left) {
+        createParenthesis(right, left + 1, resultArray, n, result + ')');
+    }
 
-    if (openN < n) {
-        backtrack(openN + 1, closedN, n, res, stack + '(');
-    }
-    if (closedN < openN) {
-        backtrack(openN, closedN + 1, n, res, stack + ')');
-    }
 }
-
 /**
  * @param {number} n
  * @return {string[]}
  */
-var generateParenthesis = function(n) {
-    const parenthesisArray = [];
-    backtrack(0, 0, n, parenthesisArray, '');
-    return parenthesisArray;
-}
+var generateParenthesis = function (n) {
+    let resultArray = [];
+    createParenthesis(0, 0, resultArray, n, '');
+    return resultArray;
+};
