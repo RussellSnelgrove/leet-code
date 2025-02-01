@@ -4,10 +4,6 @@ var largestRectangleArea = function (heights) {
 	for (let i = 0; i < heights.length; i++) {
 		const height = heights[i];
 		let index = i;
-		if (indexHieghtArray.length === 0) {
-			indexHieghtArray.push({ index, height })
-			continue;
-		}
 		while (indexHieghtArray.length > 0 && indexHieghtArray.at(-1).height > height){
 			const element = indexHieghtArray.pop();
 			index = element.index;
