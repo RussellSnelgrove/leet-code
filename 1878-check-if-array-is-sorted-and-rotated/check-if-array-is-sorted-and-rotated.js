@@ -7,8 +7,8 @@ var check = function (nums) {
     const compareString = nums.join('-');
     nums.sort((a,b)=>{return a-b});
     for (let i = 0; i < maxRotations; i++) {
-        const element = nums.shift();
-        nums.push(element);
+        const element = nums.pop();
+        nums.unshift(element);
         if (nums.join('-') === compareString) return true;
     }
     return false
