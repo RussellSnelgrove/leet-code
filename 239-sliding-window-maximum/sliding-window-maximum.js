@@ -5,22 +5,21 @@
  */
 var maxSlidingWindow = function (nums, k) {
     const resultArray = [];
-    // const output = new Array(n - k + 1);
-    const numDeque = new Deque();
+    const numArray = [];
     let leftPointer = 0, rightPointer = 0;
 
     while (rightPointer < nums.length) {
-        while (numDeque.size() && nums[numDeque.back()] < nums[rightPointer]) {
-            numDeque.popBack();
+        while (numArray.length && nums[numArray.at(-1)] < nums[rightPointer]) {
+            numArray.pop();
         }
-        numDeque.pushBack(rightPointer);
+        numArray.push(rightPointer);
 
-        if (leftPointer > numDeque.front()) {
-            numDeque.popFront();
+        if (leftPointer > numArray.at(0)) {
+            numArray.shift();
         }
 
         if ((rightPointer + 1) >= k) {
-            resultArray.push(nums[numDeque.front()]);
+            resultArray.push(nums[numArray.at(0)]);
             leftPointer++;
         }
         rightPointer++;
