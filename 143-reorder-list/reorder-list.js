@@ -17,7 +17,8 @@ var reorderList = function(head) {
         slowPointer = slowPointer.next;
     };
     let currentNode = slowPointer?.next;
-    let lastNode = (slowPointer.next = null);
+    slowPointer.next = null;
+    let lastNode = null;
     while(currentNode !== null){
         let nextNode = currentNode?.next;
         currentNode.next = lastNode;
