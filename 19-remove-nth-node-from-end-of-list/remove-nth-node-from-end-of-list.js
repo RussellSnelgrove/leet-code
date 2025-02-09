@@ -24,6 +24,6 @@ var removeNthFromEnd = function (head, n) {
         }
         traversalPointer = traversalPointer.next;
     }
-    nPointer.next = nPointer.next.next ?? null;
+    nPointer.next = nPointer.next.next;
     return startNode.next;
 };
