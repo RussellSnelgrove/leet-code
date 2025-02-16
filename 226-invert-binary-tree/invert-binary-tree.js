@@ -6,21 +6,15 @@
  *     this.right = (right===undefined ? null : right)
  * }
  */
-var invertNode = function (node) {
-    // if endOfBranch
-    if (node === null || (node.right === null && node.left === null)) return node;
-    if (node.right !== null) invertNode(node.right);
-    if (node.left !== null) invertNode(node.left);
-    let temp = node.right;
-    node.right = node.left;
-    node.left = temp;
-    return node;
-}
-
 /**
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-var invertTree = function (root) {
-    return invertNode(root);
-};
+var invertTree = function (node) {
+    if (node === null || (node.right === null && node.left === null)) return node;
+    if (node.right !== null) invertTree(node.right);
+    if (node.left !== null) invertTree(node.left);
+    let temp = node.right;
+    node.right = node.left;
+    node.left = temp;
+    return node;};
