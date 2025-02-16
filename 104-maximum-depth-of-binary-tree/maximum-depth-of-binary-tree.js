@@ -6,18 +6,22 @@
  *     this.right = (right===undefined ? null : right)
  * }
  */
-
-var depthBranch = function (node) {
-    if (node === null) return 0;
-    const leftBranchHeight = depthBranch(node.left);
-    const rightBranchHeight = depthBranch(node.right);
-    return Math.max(leftBranchHeight, rightBranchHeight) + 1;
-}
-
 /**
  * @param {TreeNode} root
  * @return {number}
  */
 var maxDepth = function (root) {
-    return depthBranch(root)
+    const stack = [[root, 1]];
+    let res = 0;
+    while (stack.length > 0) {
+        const currentNode = stack.pop();
+        const node = currentNode[0];
+        const hieght = currentNode[1];
+        if (node !== null) {
+            res = Math.max(res, hieght);
+            stack.push([node.right, hieght + 1]);
+            stack.push([node.left, hieght + 1]);
+        }
+    }
+    return res
 };
