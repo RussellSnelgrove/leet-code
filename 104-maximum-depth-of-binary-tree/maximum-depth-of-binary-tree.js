@@ -19,8 +19,8 @@ var maxDepth = function (root) {
         const hieght = currentNode[1];
         if (node !== null) {
             res = Math.max(res, hieght);
-            stack.push([node.right, hieght + 1]);
             stack.push([node.left, hieght + 1]);
+            stack.push([node.right, hieght + 1]);
         }
     }
     return res
