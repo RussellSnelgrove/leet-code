@@ -6,23 +6,16 @@
  *     this.right = (right===undefined ? null : right)
  * }
  */
-var depthFirstSearch = function (node) {
-    if (!node) {
-        return [true, 0];
-    }
-
-    const leftNode = depthFirstSearch(node.left);
-    const rightNode = depthFirstSearch(node.right);
-    const balanced = leftNode[0] && rightNode[0] && Math.abs(leftNode[1] - rightNode[1]) <= 1;
-    const height = 1 + Math.max(leftNode[1], rightNode[1]);
-
-    return [balanced, height];
+var dfs = function (node) {
+    if (node === null) return [true, 0];
+    let rightNode = dfs(node.right);
+    let leftNode = dfs(node.left)
+    return [rightNode[0] && leftNode[0] && Math.abs(leftNode[1] - rightNode[1]) <= 1, Math.max(rightNode[1], leftNode[1])+1];
 }
-
 /**
  * @param {TreeNode} root
  * @return {boolean}
  */
 var isBalanced = function (root) {
-    return depthFirstSearch(root)[0];
+    return dfs(root)[0];
 };
