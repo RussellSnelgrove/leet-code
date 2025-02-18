@@ -11,6 +11,7 @@ var removeDuplicates = function (nums) {
             nums.splice(i, 1);
             if (nums[i] !== nums[i - 1]) lastIndex = i;
         }
+        if (i >= nums.length) break
     }
     return nums.length
 };
