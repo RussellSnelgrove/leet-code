@@ -4,12 +4,12 @@
  * @return {boolean}
  */
 var isSubsequence = function (s, t) {
-    if (s.length === 0) return true
-    const sArray = s.split('');
-    for (let i = 0; i < t.length; i++) {
-        if (sArray[0] === t[i]) {
-            sArray.shift();
-            if (sArray.length === 0) return true;
+    if (s.length === 0) return true;
+    let sPointer = 0;
+    for (let tPointer = 0; tPointer < t.length; tPointer++) {
+        if (s[sPointer] === t[tPointer]) {
+            sPointer++;
+            if (sPointer >= s.length) return true;
         }
     }
     return false;
