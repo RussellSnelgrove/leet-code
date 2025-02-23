@@ -3,12 +3,15 @@
  * @param {number} val
  * @return {number}
  */
-var removeElement = function (nums, val) {
-    for (let i = 0; i < nums.length; i++) {
-        if(nums[i] === undefined) return nums.length
-        if(nums[i] === val){
-            while (nums[i] === val) nums.splice(i, 1);
+var removeElement = function(nums, val) {
+    let pointer = 0;
+    while(pointer < nums.length){
+        if(nums[pointer] !== val){
+            pointer++;
+            continue;
+        } else {
+            nums.splice(pointer, 1);
         }
     }
-    return nums.length
+    return nums.length;
 };
