@@ -3,12 +3,13 @@
  * @return {number}
  */
 var removeDuplicates = function (nums) {
-    let leftPointer = 0;
-    for (let i = 0; i < nums.length; i++) {
-        if (leftPointer < 2 || nums[i] !== nums[leftPointer - 2]){
-            nums[leftPointer] = nums[i];
-            leftPointer++;
+    let pointer = 2;
+    while (pointer < nums.length) {
+        if (nums[pointer - 2] === nums[pointer]) {
+            nums.splice(pointer, 1);
+        } else {
+            pointer++;
         }
     }
-    return leftPointer;
+    return nums.length
 };
