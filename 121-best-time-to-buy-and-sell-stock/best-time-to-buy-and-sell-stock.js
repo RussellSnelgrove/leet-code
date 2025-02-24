@@ -2,15 +2,15 @@
  * @param {number[]} prices
  * @return {number}
  */
-var maxProfit = function(prices) {
-    let leftPointer = 0;
-    let currentMaxProfit = 0;
-    for(let rightPointer=1; rightPointer<prices.length; rightPointer++){
-        if (prices[rightPointer] < prices[leftPointer]) {
-            leftPointer=rightPointer;
+var maxProfit = function (prices) {
+    let left = 0;
+    let profit = 0;
+    for (let i = 0; i < prices.length; i++) {
+        if (prices[left] > prices[i]) {
+            left = i;
             continue;
         }
-        if (prices[rightPointer] - prices[leftPointer] > currentMaxProfit) currentMaxProfit=prices[rightPointer] - prices[leftPointer];
+        if (prices[i] - prices[left] > profit) profit = prices[i] - prices[left];
     }
-    return currentMaxProfit;
+    return profit;
 };
