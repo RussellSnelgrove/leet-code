@@ -9,5 +9,6 @@ var twoSum = function (nums, target) {
         if (numsMap.get(target - nums[i]) !== undefined) return [numsMap.get(target - nums[i]), i];
         numsMap.set(nums[i], i);
     }
+    // update
     return false;
 };
