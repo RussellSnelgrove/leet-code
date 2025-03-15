@@ -5,8 +5,6 @@
 var judgeCircle = function (moves) {
     const location = [0, 0];
     for (let i = 0; i < moves.length; i++) {
-        console.log('moves', moves[i]);
-
         switch (moves[i]) {
             case 'R':
                 location[0]++;
@@ -22,6 +20,5 @@ var judgeCircle = function (moves) {
                 break;
         }
     }
-    console.log('location', location);
     return location[0] === 0 && location[1] === 0;
 };
