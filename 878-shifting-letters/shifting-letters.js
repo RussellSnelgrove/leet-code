@@ -39,10 +39,9 @@ var shiftingLetters = function (s, shifts) {
         const temp = shifts[i];
         shifts[i] += shiftCount;
         shiftCount += temp;
-    }
-    for (let i = 0; i < shifts.length; i++) {
         let index = alphabetNumberMap[s[i]];
-        result += alphabet[(index + shifts[i]) % 26];
+        result = alphabet[(index + shifts[i]) % 26] + result;
+
     }
     return result;
 };
