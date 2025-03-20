@@ -11,7 +11,7 @@
  * @return {ListNode}
  */
 var rotateRight = function(head, k) {
-    if(head === null || head.next === null) return head
+    if(head === null || head.next === null || k === 0) return head
     // this is a two pointer problem
     let pointer1 = head;
     let pointer2 = head;
