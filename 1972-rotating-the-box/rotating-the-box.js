@@ -3,13 +3,13 @@
  * @return {character[][]}
  */
 var rotateTheBox = function (boxGrid) {
-  const result = [];
+    const result = [];
     boxGrid[0].forEach(() => result.push([]));
     for (let i = 0; i < boxGrid.length; i++) {
-        const row = boxGrid.at(-(i+1));
+        const row = boxGrid.at(-(i + 1));
         let placement = row.length - 1;
         for (let j = row.length - 1; j >= 0; j--) {
-            if (row[j] === '.'){
+            if (row[j] === '.') {
                 result[j][i] = '.'
                 continue;
             }
