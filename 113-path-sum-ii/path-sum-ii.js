@@ -14,15 +14,16 @@
 var pathSum = function (root, targetSum) {
     // solve using DFS
     const result = [];
-    if(root === null) return[];
+    if (root === null) return [];
     function dfs(node, sum, values) {
+        const newValues = [...values, node.val]
         if (node.left === null && node.right === null) {
             if (node.val + sum === targetSum) {
-                result.push([...values, node.val]);
+                result.push(newValues);
             }
         }
-        if (node?.left) dfs(node.left, sum + node.val, [...values, node.val]);
-        if (node?.right) dfs(node.right, sum + node.val, [...values, node.val]);
+        if (node?.left) dfs(node.left, sum + node.val, newValues);
+        if (node?.right) dfs(node.right, sum + node.val, newValues);
     }
     dfs(root, 0, []);
     return result;
