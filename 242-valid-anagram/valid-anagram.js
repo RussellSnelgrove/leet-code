@@ -3,16 +3,6 @@
  * @param {string} t
  * @return {boolean}
  */
-var isAnagram = function (s1, s2) {
-    if (s1.length !== s2.length) return false;
-    const s1Map = new Map();
-    const s2Map = new Map();
-    for (let i = 0; i < s1.length; i++) {
-        s1Map.set(s1[i], (s1Map.get(s1[i]) || 0) + 1);
-        s2Map.set(s2[i], (s2Map.get(s2[i]) || 0) + 1);
-    }
-    for (let [key, value] of s1Map) {
-        if(s2Map.get(key) !== value) return false;
-    }
-    return true;
+var isAnagram = function(s, t) {
+    return s.split('').sort().join('') === t.split('').sort().join('');
 };
