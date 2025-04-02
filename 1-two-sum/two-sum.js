@@ -6,9 +6,9 @@
 var twoSum = function (nums, target) {
     const numsMap = new Map();
     for (let i = 0; i < nums.length; i++) {
-        if (numsMap.get(target - nums[i]) !== undefined) return [numsMap.get(target - nums[i]), i];
+        const value = target - nums[i];
+        if (numsMap.has(value)) return [numsMap.get(value), i];
         numsMap.set(nums[i], i);
     }
-    // update
     return false;
 };
