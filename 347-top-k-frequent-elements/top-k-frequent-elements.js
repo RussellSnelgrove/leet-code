@@ -12,11 +12,11 @@ var topKFrequent = function (nums, k) {
         if (numsMap[num] === undefined) numsMap[num] = 0;
         numsMap[num] += 1;
     }
-    var array = Object.keys(numsMap).map((key) => [key, numsMap[key]]);
+    var array = Object.keys(numsMap).map((key) => [parseInt(key), numsMap[key]]);
     array.sort((a, b) => a[1] - b[1]);
     const result = [];
     for(let i = 0; i<k; i++){
-        result.push(parseInt(array.pop()[0]));
+        result.push(array.pop()[0]);
     }
     return result;
 };
