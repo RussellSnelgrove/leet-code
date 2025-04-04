@@ -3,18 +3,16 @@
  * @return {number[]}
  */
 var productExceptSelf = function (nums) {
-    const numberOfNums = nums.length;
-    const result = new Array(numberOfNums).fill(1);
-
-    // Caluclates the prefix
-    for (let i = 1; i < numberOfNums; i++) {
-        result[i] = result[i - 1] * nums[i - 1];
+    const array = [];
+    let currentMultiple = 1;
+    for (let i = 0; i < nums.length; i++) {
+        array.push(currentMultiple);
+        currentMultiple *= nums[i];
     }
-
-    let postfix = 1;
-    for (let i = numberOfNums - 1; i >= 0; i--) {
-        result[i] = result[i] * postfix;
-        postfix *= nums[i];
+    currentMultiple = 1;
+    for (let i = nums.length - 1; i >= 0; i--) {
+        array[i] *= currentMultiple;
+        currentMultiple *= nums[i];
     }
-    return result;
+    return array;
 };
