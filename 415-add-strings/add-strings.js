@@ -14,7 +14,6 @@ var addStrings = function (num1, num2) {
         const value2 = parseInt(num2[num2Len - i]) || 0;
         const columnValue = (value1 + value2 + carry) % 10;
         carry = (value1 + value2 + carry >= 10) ? 1 : 0;
-        console.log('columnValue', columnValue);
         result = String(columnValue) + result;
         i++;
     }
