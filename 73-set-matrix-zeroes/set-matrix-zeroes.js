@@ -3,7 +3,7 @@
  * @return {void} Do not return anything, modify matrix in-place instead.
  */
 var setZeroes = function(matrix) {
-        const m = matrix.length;
+    const m = matrix.length;
     const n = matrix[0].length;
     const zeros = Array(m + n).fill(0); // Marker array
 
