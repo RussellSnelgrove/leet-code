@@ -22,5 +22,5 @@ def is_valid(s)
         end
     end
     return true if s_stack.empty?
-    return false
+    false
 end
