@@ -4,9 +4,9 @@
 def two_sum(nums, target)
     nums_hash = {}
 
-    nums.each_with_index do |num, index|
+    nums.each_with_index do |num, i|
         value = target-num
-        return [nums_hash[value], index]  if(nums_hash[value])
-        nums_hash[num] = index
+        return [nums_hash[value], i]  if(nums_hash[value])
+        nums_hash[num] = i
     end
 end
